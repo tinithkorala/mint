@@ -1,15 +1,19 @@
+// Importing required modules
 const express = require('express');
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 
+// Creating an Express application
 const app = express();
 
+// Setting up the port
+const port = process.env.PORT || 3000;
+
+// Creating a route for the root URL
 app.get('/', (req, res) => {
-    res.status(200).json({message: 'Welcome to evolve API'})
+  res.send('Hello, World!');
 });
 
-
-// Listen To Server
-const port = process.env.SERVER_PORT || 3000;
+// Starting the server
 app.listen(port, () => {
-    console.log(`Evolve API is running on http://localhost:${port}`);
-})
+  console.log(`Server running at http://localhost:${port}/`);
+});
